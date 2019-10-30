@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Currency</string>
+
+    <string-array name="currency_list">
+        <item>USD</item>
+        <item>RUB</item>
+        <item>EU</item>
+    </string-array>
+</resources>
