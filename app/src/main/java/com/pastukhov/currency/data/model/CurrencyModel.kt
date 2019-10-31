@@ -1,4 +1,4 @@
-package com.pastukhov.chucknorris.data.model
+package com.pastukhov.currency.data.model
 
 
 data class CurrencyModel(

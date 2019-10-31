@@ -1,7 +1,7 @@
-package com.pastukhov.chucknorris.di
+package com.pastukhov.currency.di
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 
+import com.pastukhov.currency.data.ApiService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -11,7 +11,6 @@ import javax.inject.Singleton
 
 
 private val BASE_URL = "https://free.currconv.com/api/v7/convert/"
-private val API_KEY = "6bfeb100c4be1ee184fc"
 
 @Module
 class RestModule {
@@ -24,5 +23,8 @@ class RestModule {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
-
+    @Provides
+    @Singleton
+    fun provideCurrency(retrofit: Retrofit): ApiService =
+        retrofit.create(ApiService::class.java)
 }

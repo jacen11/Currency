@@ -1,6 +1,6 @@
-package com.pastukhov.chucknorris.data
+package com.pastukhov.currency.data
 
-import com.pastukhov.chucknorris.data.model.CurrencyModel
+import com.pastukhov.currency.data.model.CurrencyModel
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

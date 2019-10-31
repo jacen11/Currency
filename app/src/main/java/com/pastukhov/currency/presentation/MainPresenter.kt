@@ -1,8 +1,11 @@
 package com.pastukhov.currency.presentation
 
+import com.pastukhov.currency.data.ApiService
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MainPresenter  : IMainPresenter {
+class MainPresenter  @Inject constructor(var apiService:ApiService) : IMainPresenter {
+
 
 
     private val compositeDisposable = CompositeDisposable()
@@ -18,10 +21,14 @@ class MainPresenter  : IMainPresenter {
 
     override fun showRate() {
 
-        view?.getSpnFrom()
-        view?.getSpnTo()
+//        view?.getSpnFrom()
+//        view?.getSpnTo()
 
+       // apiService.getRate()
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view?.setTxtResult("test")
+
     }
+
+
 }
