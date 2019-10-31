@@ -1,12 +1,14 @@
 package com.pastukhov.currency.presentation
 
+import android.util.Log
+import com.pastukhov.chucknorris.business.Interactor
 import com.pastukhov.currency.data.ApiService
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MainPresenter  @Inject constructor(var apiService:ApiService) : IMainPresenter {
-
-
+class MainPresenter @Inject constructor(var interactor: Interactor) : IMainPresenter {
 
     private val compositeDisposable = CompositeDisposable()
     private var view: IMainView? = null
@@ -21,12 +23,24 @@ class MainPresenter  @Inject constructor(var apiService:ApiService) : IMainPrese
 
     override fun showRate() {
 
-//        view?.getSpnFrom()
-//        view?.getSpnTo()
+        val from: String = view?.getSpnFrom() ?: ""
+        val to: String = view?.getSpnTo() ?: ""
+        val amount: String = view?.getNumber() ?: ""
 
-       // apiService.getRate()
+        compositeDisposable.add(
 
-        view?.setTxtResult("test")
+
+            interactor.getCurrency(from, to, amount)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view?.setTxtResult("test")
+                }
+                    , {
+                        Log.e("errorQwer", "errorQwer - error: $it")
+                    })
+        )
+
 
     }
 

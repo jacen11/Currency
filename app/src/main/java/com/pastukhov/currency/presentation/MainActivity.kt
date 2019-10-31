@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
 import androidx.core.view.get
+import androidx.core.view.isVisible
 import com.pastukhov.currency.App
 
 
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity(), IMainView {
         setContentView(R.layout.activity_main)
 
         App.appComponent?.inject(this)
+        presenter.attachView(this)
 
         btnConvert.setOnClickListener {
             presenter.showRate()
@@ -42,11 +44,12 @@ class MainActivity : AppCompatActivity(), IMainView {
 
     override fun getSpnTo() = spnTo.selectedItem.toString()
 
-
     override fun getSpnFrom() = spnFrom.selectedItem.toString()
 
+    override fun getNumber() = txtNumber.text.toString()
+
     override fun setTxtResult(txt: String) {
-        txtResult.text = txt
+        txtResultConvert.text = txt
     }
 
 }

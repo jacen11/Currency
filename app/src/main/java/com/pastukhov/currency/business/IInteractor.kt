@@ -5,5 +5,5 @@ import io.reactivex.Observable
 
 interface IInteractor {
 
-    fun getCurrency(): Observable<CurrencyBusinessModel>
+    fun getCurrency(from: String, to: String, amount: String): Observable<CurrencyBusinessModel>
 }
