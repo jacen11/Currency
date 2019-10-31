@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">Currency</string>
-
-    <string-array name="currency_list">
-        <item>USD</item>
-        <item>RUB</item>
+    <string name="app_name">Конвертер валют</string>
+    <string name="txtConvertTo">Конвертировать в</string>
+    <string name="toConvert">Конвертировать</string>
+    <string name="txtConvertFrom">Конвертировать из</string>
+    <string name="txtResult">Результат</string>
+    <string-array name="listCurrencies">
         <item>EU</item>
+        <item>RUB</item>
+        <item>USD</item>
     </string-array>
 </resources>
