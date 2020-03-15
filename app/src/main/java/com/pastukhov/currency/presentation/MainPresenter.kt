@@ -27,19 +27,19 @@ class MainPresenter @Inject constructor(var interactor: Interactor) : IMainPrese
         val to: String = view?.getSpnTo() ?: ""
         val amount: String = view?.getNumber() ?: ""
 
-        compositeDisposable.add(
+        //   compositeDisposable.add(
 
+        Log.d("result1", "$from $to $amount")
 
-            interactor.getCurrency(from, to, amount)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    view?.setTxtResult("test")
-                }
-                    , {
-                        Log.e("errorQwer", "errorQwer - error: $it")
-                    })
-        )
+        interactor.getCurrency(from, to, amount)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                Log.d("result", "test $it")
+                view?.setTxtResult(it.value)
+            },
+                { Log.e("errorQwer", "errorQwer - error: $it") })
+        //  )
 
 
     }

@@ -17,5 +17,5 @@ class Interactor @Inject constructor(private val service: ApiService) : IInterac
         to: String,
         amount: String
     ): Observable<CurrencyBusinessModel> =
-        service.getRate(from, to).map { map(it) * amount.toInt() }
+        service.getRate("${from}_$to").map { map(it) * amount.toDouble() }
 }

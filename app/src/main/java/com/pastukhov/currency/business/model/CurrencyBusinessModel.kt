@@ -4,7 +4,7 @@ data class CurrencyBusinessModel(
     var value: String
 )
 
-operator fun CurrencyBusinessModel.times(number: Int): CurrencyBusinessModel {
-    this.value = (this.value.toInt() * number).toString()
+operator fun CurrencyBusinessModel.times(number: Double): CurrencyBusinessModel {
+    this.value = (this.value.toDouble() * number).toString()
     return this
 }
