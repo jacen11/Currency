@@ -1,5 +1,3 @@
 package com.pastukhov.currency.data.model
 
-data class CurrencyModel(
-    val value: String
-)
+data class CurrencyModel(val value: String)

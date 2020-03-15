@@ -12,5 +12,4 @@ class CurrencyModelDeserializer : JsonDeserializer<CurrencyModel> {
         context: JsonDeserializationContext?
     ): CurrencyModel =
         CurrencyModel(json?.asJsonObject?.entrySet()?.first()?.value?.asString ?: "0")
-
 }

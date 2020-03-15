@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), IMainView {
         super.onDestroy()
 
         if (isFinishing) {
-//            App.appComponent = null
+            App.appComponent = null
         }
     }
 
