@@ -5,9 +5,4 @@
     <string name="txtConvertFrom">Конвертировать из</string>
     <string name="txtResult">Результат</string>
     <string name="txtValue">Ведите значение</string>
-    <string-array name="listCurrencies">
-        <item>EUR</item>
-        <item>RUB</item>
-        <item>USD</item>
-    </string-array>
 </resources>

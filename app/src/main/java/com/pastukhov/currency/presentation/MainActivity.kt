@@ -1,19 +1,12 @@
 package com.pastukhov.currency.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
+import com.pastukhov.currency.App
 import com.pastukhov.currency.R
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.view.View
-import androidx.core.view.get
-import androidx.core.view.isVisible
-import com.pastukhov.currency.App
 
 
 class MainActivity : AppCompatActivity(), IMainView {
@@ -24,6 +17,14 @@ class MainActivity : AppCompatActivity(), IMainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        ArrayAdapter
+            .createFromResource(this, R.array.listCurrencies, R.layout.spinner_item)
+            .also { adapter ->
+                adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+                spnFrom.adapter = adapter
+                spnTo.adapter = adapter
+            }
 
         App.appComponent?.inject(this)
         presenter.attachView(this)
