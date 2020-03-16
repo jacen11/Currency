@@ -57,25 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtConvertTo" />
 
-    <Button
-        android:id="@+id/btnConvert"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/marginStart"
-        android:layout_marginLeft="@dimen/marginStart"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginEnd"
-        android:layout_marginRight="@dimen/marginEnd"
-        android:background="@color/colorPrimary"
-        android:text="@string/toConvert"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultConvert" />
-
-
     <EditText
         android:id="@+id/txtNumber"
         android:layout_width="0dp"

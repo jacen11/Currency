@@ -1,8 +1,10 @@
 package com.pastukhov.currency.presentation
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.pastukhov.currency.App
 import com.pastukhov.currency.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,11 +31,13 @@ class MainActivity : AppCompatActivity(), IMainView {
         App.appComponent?.inject(this)
         presenter.attachView(this)
 
-        btnConvert.setOnClickListener {
-            presenter.showRate()
-        }
-    }
+        val onLayoutChangeListener =
+            View.OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ -> presenter.showRate() }
 
+        txtNumber.addTextChangedListener { presenter.showRate() }
+        spnFrom.addOnLayoutChangeListener(onLayoutChangeListener)
+        spnTo.addOnLayoutChangeListener(onLayoutChangeListener)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
