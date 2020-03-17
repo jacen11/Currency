@@ -1,8 +1,7 @@
 package com.pastukhov.currency.presentation
 
 import android.util.Log
-import com.pastukhov.chucknorris.business.Interactor
-import com.pastukhov.currency.data.ApiService
+import com.pastukhov.currency.business.Interactor
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
