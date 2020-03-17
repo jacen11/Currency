@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), IMainView {
 
         if (isFinishing) {
             App.appComponent = null
+            presenter.detachView()
         }
     }
 
