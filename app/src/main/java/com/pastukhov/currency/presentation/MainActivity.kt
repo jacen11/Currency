@@ -20,6 +20,15 @@ class MainActivity : AppCompatActivity(), IMainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initViews()
+
+    }
+
+    private fun initViews() {
+
+        App.appComponent?.inject(this)
+        presenter.attachView(this)
+
         ArrayAdapter
             .createFromResource(this, R.array.listCurrencies, R.layout.spinner_item)
             .also { adapter ->
@@ -27,9 +36,6 @@ class MainActivity : AppCompatActivity(), IMainView {
                 spnFrom.adapter = adapter
                 spnTo.adapter = adapter
             }
-
-        App.appComponent?.inject(this)
-        presenter.attachView(this)
 
         val onLayoutChangeListener =
             View.OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ -> presenter.showRate() }
