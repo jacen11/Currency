@@ -37,10 +37,16 @@ class MainActivity : AppCompatActivity(), IMainView {
                 spnTo.adapter = adapter
             }
 
-        val onLayoutChangeListener =
-            View.OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ -> presenter.showRate() }
+        val to = spnTo.selectedItem.toString()
+        val from = spnFrom.selectedItem.toString()
+        val number = txtNumber.text.toString()
 
-        txtNumber.addTextChangedListener { presenter.showRate() }
+        val onLayoutChangeListener =
+            View.OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+                presenter.showRate(to, from, number)
+            }
+
+        txtNumber.addTextChangedListener { presenter.showRate(to, from, number) }
         spnFrom.addOnLayoutChangeListener(onLayoutChangeListener)
         spnTo.addOnLayoutChangeListener(onLayoutChangeListener)
     }

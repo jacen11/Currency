@@ -4,5 +4,5 @@ interface IMainPresenter {
 
     fun attachView(view: IMainView)
     fun detachView()
-    fun showRate()
+    fun showRate(from: String, to: String,amount: String)
 }

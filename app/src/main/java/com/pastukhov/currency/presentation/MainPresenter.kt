@@ -20,11 +20,7 @@ class MainPresenter @Inject constructor(var interactor: Interactor) : IMainPrese
         this.view = null
     }
 
-    override fun showRate() {
-
-        val from: String = view?.getSpnFrom() ?: ""
-        val to: String = view?.getSpnTo() ?: ""
-        val amount: String = view?.getNumber() ?: ""
+    override fun showRate(from: String, to: String,amount: String ) {
 
         compositeDisposable.add(
             interactor.getCurrency(from, to, amount)
